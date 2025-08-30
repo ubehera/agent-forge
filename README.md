@@ -19,3 +19,21 @@ cp agents/*.md ~/.claude/agents/ \
 ## License
 - Code (commands, scripts) is licensed under Apache-2.0. See `LICENSE`.
 - Documentation and agents are licensed under CC BY 4.0. See `LICENSE-CC`.
+
+## MCP Config
+- Location: `./.mcp.json` (project-level). Claude Code merges this with your user-level `~/.mcp.json`.
+- Included by default: `memory` and `sequential-thinking` servers via `npx`.
+- Enable more servers by editing `./.mcp.json`. Example (disabled by default):
+  ```json
+  {
+    "mcpServers": {
+      "aws-docs": {
+        "command": "uvx",
+        "args": ["awslabs.aws-documentation-mcp-server@latest"],
+        "env": { "AWS_REGION": "us-east-1" },
+        "disabled": true
+      }
+    }
+  }
+  ```
+- Tips: do not commit secrets; use environment variables. Toggle servers with `"disabled": true|false`.
