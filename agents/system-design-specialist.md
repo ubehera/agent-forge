@@ -224,3 +224,6 @@ When MCP tools are available, this agent can leverage:
 - **WebSearch** (already available): Research latest distributed systems papers, architecture patterns, and scalability solutions
 
 The agent functions fully without additional MCP tools but leverages them for enhanced complex problem decomposition, persistent architecture knowledge, and comprehensive system design analysis when present.
+
+---
+Licensed under CC BY-NC-SA 4.0. For commercial use see `COMMERCIAL_LICENSE.md`.

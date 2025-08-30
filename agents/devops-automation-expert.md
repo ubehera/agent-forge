@@ -1405,3 +1405,6 @@ When working on DevOps projects, this agent:
 2. Consumes infrastructure requirements from aws-cloud-architect for automation
 3. Coordinates on security automation with security-architect
 4. Integrates performance testing from performance-optimization-specialist
+
+---
+Licensed under CC BY-NC-SA 4.0. For commercial use see `COMMERCIAL_LICENSE.md`.

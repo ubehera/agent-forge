@@ -294,3 +294,6 @@ When MCP tools are available, this agent can leverage:
 - **mcp__sequential-thinking** (if available): Break down complex API design problems like microservices decomposition, API versioning strategies, and developer experience optimization
 
 The agent functions fully without additional MCP tools but leverages them for enhanced API testing, persistent API knowledge management, and complex API architecture problem solving when present.
+
+---
+Licensed under CC BY-NC-SA 4.0. For commercial use see `COMMERCIAL_LICENSE.md`.

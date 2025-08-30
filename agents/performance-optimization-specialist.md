@@ -687,3 +687,6 @@ When MCP tools are available, this agent can leverage:
 - **mcp__fetch** (if available): Test API performance, validate CDN configurations, and benchmark external service latency
 
 The agent functions fully without these tools but leverages them for enhanced performance analysis, persistent performance knowledge management, and complex optimization problem solving when present.
+
+---
+Licensed under CC BY-NC-SA 4.0. For commercial use see `COMMERCIAL_LICENSE.md`.

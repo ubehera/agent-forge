@@ -383,3 +383,6 @@ When working on web applications, this agent:
 2. Consumes API specifications from api-platform-engineer
 3. Coordinates on security patterns with security-architect
 4. Integrates with deployment strategies from devops-automation-expert
+
+---
+Licensed under CC BY-NC-SA 4.0. For commercial use see `COMMERCIAL_LICENSE.md`.
