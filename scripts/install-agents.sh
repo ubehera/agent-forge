@@ -4,7 +4,7 @@
 # Installs ubehera agents to user or project Claude Code configuration
 # Usage: ./install-agents.sh [--user|--project] [--select agent1,agent2] [--dry-run]
 
-set -e
+set -eo pipefail
 
 # Colors for output
 RED='\033[0;31m'
@@ -25,6 +25,7 @@ DRY_RUN=false
 SELECTED_AGENTS=""
 BACKUP=true
 VERBOSE=false
+NON_INTERACTIVE=false
 
 # Function to print colored output
 print_info() {
@@ -58,6 +59,7 @@ OPTIONS:
     -d, --dry-run           Show what would be installed without doing it
     -b, --no-backup         Skip backup of existing agents
     -v, --verbose           Enable verbose output
+    -n, --non-interactive   Do not prompt when project checks fail (continue)
     -h, --help              Show this help message
 
 EXAMPLES:
@@ -279,6 +281,10 @@ while [[ $# -gt 0 ]]; do
             VERBOSE=true
             shift
             ;;
+        -n|--non-interactive)
+            NON_INTERACTIVE=true
+            shift
+            ;;
         -h|--help)
             usage
             exit 0
@@ -314,11 +320,15 @@ main() {
         # Check if we're in a git repository or project directory
         if [[ ! -d ".git" ]] && [[ ! -f "package.json" ]] && [[ ! -f "Cargo.toml" ]] && [[ ! -f "go.mod" ]]; then
             print_warning "Current directory doesn't appear to be a project root"
-            read -p "Continue anyway? (y/N) " -n 1 -r
-            echo
-            if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-                print_info "Installation cancelled"
-                exit 0
+            if [[ "$NON_INTERACTIVE" == true ]]; then
+                print_info "Non-interactive mode: continuing despite project check"
+            else
+                read -p "Continue anyway? (y/N) " -n 1 -r
+                echo
+                if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+                    print_info "Installation cancelled"
+                    exit 0
+                fi
             fi
         fi
     fi
