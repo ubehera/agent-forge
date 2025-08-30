@@ -15,6 +15,7 @@ A curated collection of specialized Claude Code subagents for professional softw
 | **performance-optimization-specialist** | All-domain Performance | Performance-security balance | Expert optimization | Bottleneck resolution, Monitoring | Read, Write, MultiEdit, Bash, Grep, Task |
 | **security-architect** | Security & Compliance | Expert all domains | Security-performance tradeoffs | Threat modeling, Compliance | Read, Write, MultiEdit, Bash, Grep, WebSearch |
 | **system-design-specialist** | Distributed Systems | Security patterns | Scalability, Reliability | Large-scale architecture | Read, Write, MultiEdit, WebSearch, Task |
+| **research-librarian** | Research & Discovery | Trusted sources | Efficient retrieval | Unknown URLs, literature surveys | Read, Write, MultiEdit, WebSearch |
 
 ## Invocation Guide
 
@@ -30,6 +31,7 @@ Agents are automatically selected when your request matches their description ke
 - **Performance**: "optimization", "slow", "performance", "Core Web Vitals", "bottleneck" → `performance-optimization-specialist`
 - **Security**: "security", "threat", "vulnerability", "compliance", "authentication" → `security-architect`
 - **Architecture**: "system design", "distributed", "scalability", "microservices" → `system-design-specialist`
+- **Research**: "find docs", "RFC", "compare", "which standard/library", "best practice" → `research-librarian`
 
 ### Agent Specialization Levels
 
@@ -52,6 +54,7 @@ Agents are automatically selected when your request matches their description ke
 
 ### Building Secure APIs
 1. `api-platform-engineer` - API design and specification
+2. `research-librarian` - Source discovery for specs and vendor docs
 2. `security-architect` - Security patterns and threat modeling  
 3. `performance-optimization-specialist` - API performance tuning
 4. `devops-automation-expert` - CI/CD and deployment automation

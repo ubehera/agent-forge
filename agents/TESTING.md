@@ -12,7 +12,7 @@ cp agents/*.md ~/.claude/agents/
 # Verify all agents are installed
 ls ~/.claude/agents/ | grep -E "(api-platform|aws-cloud|data-pipeline|devops-automation|full-stack|machine-learning|performance-optimization|security-architect|system-design)"
 
-# Count should be 9 agents
+# Count should be 10 agents
 ls ~/.claude/agents/*.md | wc -l
 ```
 
@@ -114,6 +114,16 @@ Test each agent's automatic invocation by using trigger keywords from their enha
 - [ ] "Handle system scalability challenges"
 
 **Expected Result:** Should invoke `system-design-specialist`
+
+### 10. research-librarian
+**Test Phrases:**
+- [ ] "Which RFC defines HTTP/2 frame types?"
+- [ ] "Compare OpenAPI 3.0 vs 3.1 changes"
+- [ ] "Find canonical docs for AWS API Gateway throttling"
+- [ ] "Best practices for idempotency keys"
+- [ ] "Official spec for JSON Merge Patch"
+
+**Expected Result:** Should invoke `research-librarian`
 
 ## Agent Quality Testing
 
