@@ -6,7 +6,7 @@ A curated collection of specialized Claude Code subagents for professional softw
 
 | Agent | Primary Domain | Security Level | Performance Focus | Best For | Tool Set |
 |-------|---------------|----------------|-------------------|----------|----------|
-| **api-platform-engineer** | API Design & Governance | OAuth/JWT, Rate Limiting | Gateway optimization, Caching | REST/GraphQL APIs, Developer portals | Read, Write, MultiEdit, Bash, Grep, WebFetch |
+| **api-platform-engineer** | API Design & Governance | OAuth/JWT, Rate Limiting | Gateway optimization, Caching | REST/GraphQL APIs, Developer portals | Read, Write, MultiEdit, Bash, Grep, WebFetch, Task |
 | **aws-cloud-architect** | Cloud Infrastructure | IAM, KMS, WAF | Auto-scaling, Cost optimization | AWS deployments, Well-Architected | Read, Write, MultiEdit, Bash, Task, WebSearch |
 | **data-pipeline-engineer** | ETL/Streaming | Data privacy | Spark optimization, Parallel processing | Data lakes, Real-time processing | Read, Write, MultiEdit, Bash, Task |
 | **devops-automation-expert** | CI/CD & Automation | Security scanning, Secrets mgmt | Pipeline efficiency | GitOps, IaC, Monitoring | Read, Write, MultiEdit, Bash, Task, Grep |
