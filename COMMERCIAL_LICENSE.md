@@ -1,6 +1,6 @@
 # Commercial Licensing
 
-If you use this repository commercially and your organization’s gross revenue exceeds 250,000 USD (trailing 12 months), you must obtain a paid commercial license.
+If you use this repository commercially and your organization’s gross revenue exceeds 1,000,000 USD (trailing 12 months), you must obtain a paid commercial license.
 
 What’s covered
 - Code (commands, scripts) is licensed by default under PolyForm Small Business 1.0.0, which restricts use by larger organizations.
@@ -21,5 +21,4 @@ We will reply with pricing and terms tailored to your use. Upon signature and pa
 
 Notes
 - This file is an overview and does not itself grant rights. The authoritative terms are the signed commercial license agreement.
-- For small businesses (≤ 250k USD TTM revenue) and noncommercial use, the default licenses apply and no paid license is needed.
-
+- For small businesses (≤ 1M USD TTM revenue) and noncommercial use, the default licenses apply and no paid license is needed.
