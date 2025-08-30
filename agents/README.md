@@ -112,13 +112,13 @@ Agents function fully without MCP tools but leverage them when available for enh
 
 ### For Current User:
 ```bash
-cp ubehera/agents/*.md ~/.claude/agents/
+cp agents/*.md ~/.claude/agents/
 ```
 
 ### For Project Only:
 ```bash
 mkdir -p .claude/agents
-cp ubehera/agents/*.md .claude/agents/
+cp agents/*.md .claude/agents/
 ```
 
 ### Verify Installation:

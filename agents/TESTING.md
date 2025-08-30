@@ -7,7 +7,7 @@ This document provides comprehensive testing procedures for validating the ubehe
 ### Installation Verification
 ```bash
 # Copy agents to Claude Code directory
-cp ubehera/agents/*.md ~/.claude/agents/
+cp agents/*.md ~/.claude/agents/
 
 # Verify all agents are installed
 ls ~/.claude/agents/ | grep -E "(api-platform|aws-cloud|data-pipeline|devops-automation|full-stack|machine-learning|performance-optimization|security-architect|system-design)"

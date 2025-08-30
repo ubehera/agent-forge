@@ -1,9 +1,9 @@
 # Agent Addition/Update Checklist
 
-Use this checklist before opening a PR for any agent in `ubehera/agents/`.
+Use this checklist before opening a PR for any agent in `agents/`.
 
 ## File & Location
-- [ ] File lives in `ubehera/agents/`
+- [ ] File lives in `agents/`
 - [ ] Filename is `kebab-case.md` (e.g., `api-platform-engineer.md`)
 
 ## YAML Frontmatter
@@ -20,19 +20,18 @@ Use this checklist before opening a PR for any agent in `ubehera/agents/`.
 ## Validation
 - [ ] Install locally for current user or project:
   ```bash
-  cp ubehera/agents/*.md ~/.claude/agents/ \
-  || (mkdir -p .claude/agents && cp ubehera/agents/*.md .claude/agents/)
+  cp agents/*.md ~/.claude/agents/ \
+  || (mkdir -p .claude/agents && cp agents/*.md .claude/agents/)
   ```
 - [ ] Restart Claude Code to load changes
 - [ ] Test prompts that should trigger the agent and confirm selection
 - [ ] Verify tool restrictions behave as intended
 
 ## Documentation
-- [ ] Update `ubehera/agents/README.md` (matrix/triggers) if adding/renaming
+- [ ] Update `agents/README.md` (matrix/triggers) if adding/renaming
 - [ ] Update `CLAUDE.md` if standards or workflows change
 - [ ] Confirm `AGENTS.md` remains accurate
 
 ## Configuration & Security
 - [ ] Review `.mcp.json` if adding servers; no credentials committed
 - [ ] Prefer minimal `tools` to reduce permissions and improve performance
-

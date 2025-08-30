@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- Primary development lives here in `ubehera/`.
+- Primary development lives in this repository.
 - `agents/`: Claude Code subagents (`.md` with YAML frontmatter).
 - `commands/`, `scripts/`: Optional helpers and maintenance utilities.
 - Project MCP config is managed at the repo root (`.mcp.json`) when applicable.
@@ -9,11 +9,11 @@
 ## Build, Test, and Development Commands
 - Install all local agents (current user):
   ```bash
-  cp ubehera/agents/*.md ~/.claude/agents/
+  cp agents/*.md ~/.claude/agents/
   ```
 - Install for this project only:
   ```bash
-  mkdir -p .claude/agents && cp ubehera/agents/*.md .claude/agents/
+  mkdir -p .claude/agents && cp agents/*.md .claude/agents/
   ```
 - Verify installed agents:
   ```bash
@@ -40,4 +40,3 @@
 ## Security & Configuration Tips
 - Review `.mcp.json` before enabling servers; never commit secrets.
 - Keep `tools` minimal to reduce permissions and improve performance.
-

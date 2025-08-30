@@ -3,7 +3,7 @@
 Thanks for improving this repository. Please read this short guide before opening a PR.
 
 ## Scope
-- Primary contributions target `ubehera/` (agents, commands, scripts).
+- Primary contributions target this repository (agents, commands, scripts).
 
 ## Start Here
 - Read: `AGENTS.md` (repo guidelines)
@@ -13,8 +13,8 @@ Thanks for improving this repository. Please read this short guide before openin
 ## Local Validation
 ```bash
 # Install agents for current user (or project)
-cp ubehera/agents/*.md ~/.claude/agents/ \
-  || (mkdir -p .claude/agents && cp ubehera/agents/*.md .claude/agents/)
+cp agents/*.md ~/.claude/agents/ \
+  || (mkdir -p .claude/agents && cp agents/*.md .claude/agents/)
 # Restart Claude Code, then test prompts matching the agent description
 ```
 
@@ -32,4 +32,3 @@ cp ubehera/agents/*.md ~/.claude/agents/ \
 ## Security & Configuration
 - Review `.mcp.json` changes carefully; never commit secrets. Prefer env vars.
 - Keep `tools` minimal per agent to reduce permissions and improve performance.
-
