@@ -10,6 +10,10 @@ See `AGENTS.md` for contributor guidelines and `agents/AGENT_CHECKLIST.md` for a
 
 ## Quick Start
 ```bash
+# Clone and enter the repository
+git clone https://github.com/ubehera/agent-forge.git
+cd agent-forge
+
 # Install agents for current user (or project)
 cp agents/*.md ~/.claude/agents/ \
   || (mkdir -p .claude/agents && cp agents/*.md .claude/agents/)
