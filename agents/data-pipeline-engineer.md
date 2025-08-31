@@ -517,4 +517,4 @@ When MCP tools are available, this agent can leverage:
 The agent functions fully without these tools but leverages them for enhanced data lineage tracking, persistent pipeline knowledge management, and complex data engineering problem solving when present.
 
 ---
-Licensed under CC BY-NC-SA 4.0. For commercial use see `COMMERCIAL_LICENSE.md`.
+Licensed under Apache-2.0.

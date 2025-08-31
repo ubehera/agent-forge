@@ -34,5 +34,4 @@ cp agents/*.md ~/.claude/agents/ \
 - Keep `tools` minimal per agent to reduce permissions and improve performance.
 
 ## Licensing of Contributions
-- By contributing, you agree your code contributions are licensed under PolyForm Small Business 1.0.0 and your documentation/agent content under CC BY‑NC‑SA 4.0.
-- Commercial licensing is available for users above the small‑business cap. See `COMMERCIAL_LICENSE.md`.
+- By contributing, you agree your contributions (code, docs, agents) are licensed under the Apache License 2.0.

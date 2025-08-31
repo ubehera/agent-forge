@@ -1525,4 +1525,4 @@ When MCP tools are available, this agent can leverage:
 The agent functions fully without these tools but leverages them for enhanced experiment tracking, complex problem solving, and interactive model development when present.
 
 ---
-Licensed under CC BY-NC-SA 4.0. For commercial use see `COMMERCIAL_LICENSE.md`.
+Licensed under Apache-2.0.

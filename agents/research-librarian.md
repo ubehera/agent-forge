@@ -35,4 +35,4 @@ You are a precise technical researcher. Your job is to identify the best primary
 - Include key terms and refined queries that led to sources.
 
 ---
-Licensed under CC BY-NC-SA 4.0. For commercial use see `COMMERCIAL_LICENSE.md`.
+Licensed under Apache-2.0.

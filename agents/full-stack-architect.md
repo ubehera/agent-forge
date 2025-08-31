@@ -385,4 +385,4 @@ When working on web applications, this agent:
 4. Integrates with deployment strategies from devops-automation-expert
 
 ---
-Licensed under CC BY-NC-SA 4.0. For commercial use see `COMMERCIAL_LICENSE.md`.
+Licensed under Apache-2.0.

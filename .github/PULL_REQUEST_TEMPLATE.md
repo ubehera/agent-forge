@@ -30,4 +30,4 @@
 - [ ] Docs updated: `AGENTS.md`, `agents/README.md` (matrix/triggers)
 - [ ] Local verification done (install, restart, prompt tests)
 - [ ] No secrets or credentials added; env vars used for config
-- [ ] I agree my contribution is licensed under the repo terms: code under PolyForm Small Business 1.0.0 and content under CC BY‑NC‑SA 4.0
+- [ ] I agree my contribution is licensed under the Apache License 2.0

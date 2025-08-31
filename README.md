@@ -21,9 +21,7 @@ cp agents/*.md ~/.claude/agents/ \
 ```
 
 ## License
-- Code (commands, scripts): PolyForm Small Business 1.0.0. Free for orgs ≤ $1M trailing‑12‑months revenue. Commercial use above the cap requires a paid license. See `LICENSE` and `COMMERCIAL_LICENSE.md`.
-- Documentation and agents: CC BY‑NC‑SA 4.0 (noncommercial, share alike, with attribution). See `LICENSE-CC`.
-- Commercial licensing: message @ubehera on GitHub to request terms and pricing.
+- Code, documentation, and agents are licensed under Apache License 2.0. See `LICENSE`.
 
 ## MCP Config
 - Location: `./.mcp.json` (project-level). Claude Code merges this with your user-level `~/.mcp.json`.

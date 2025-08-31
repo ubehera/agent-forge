@@ -153,4 +153,4 @@ When working on AWS projects, this agent:
 4. Integrates with performance requirements from performance-optimization-specialist
 
 ---
-Licensed under CC BY-NC-SA 4.0. For commercial use see `COMMERCIAL_LICENSE.md`.
+Licensed under Apache-2.0.

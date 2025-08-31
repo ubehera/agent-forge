@@ -1969,4 +1969,4 @@ When MCP tools are available, this agent leverages:
 - **mcp__fetch__**: Security validation and threat intelligence gathering
 
 ---
-Licensed under CC BY-NC-SA 4.0. For commercial use see `COMMERCIAL_LICENSE.md`.
+Licensed under Apache-2.0.

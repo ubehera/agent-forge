@@ -226,4 +226,4 @@ When MCP tools are available, this agent can leverage:
 The agent functions fully without additional MCP tools but leverages them for enhanced complex problem decomposition, persistent architecture knowledge, and comprehensive system design analysis when present.
 
 ---
-Licensed under CC BY-NC-SA 4.0. For commercial use see `COMMERCIAL_LICENSE.md`.
+Licensed under Apache-2.0.
