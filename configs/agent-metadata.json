@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "00-meta": {
+      "tier": 0,
+      "category": "Meta-Orchestration",
+      "agents": {
+        "agent-coordinator": {
+          "quality_score": 0.0,
+          "dependencies": [],
+          "delegates_to": ["*"],
+          "tools": ["Task", "Read", "Write"],
+          "activation_patterns": ["orchestrate", "coordinate", "multi-agent", "complex workflow"],
+          "last_updated": "2025-01-17",
+          "maintainer": "system"
+        }
+      }
+    },
+    "01-foundation": {
+      "tier": 1,
+      "category": "Foundation",
+      "agents": {
+        "system-design-specialist": {
+          "quality_score": 8.2,
+          "dependencies": [],
+          "delegates_to": ["security-architect", "performance-optimization-specialist"],
+          "tools": ["Read", "Write", "MultiEdit", "WebSearch", "Task"],
+          "activation_patterns": ["system design", "architecture", "scalability", "distributed systems"],
+          "last_updated": "2025-01-17",
+          "maintainer": "ubehera"
+        },
+        "api-platform-engineer": {
+          "quality_score": 8.0,
+          "dependencies": [],
+          "delegates_to": ["security-architect", "system-design-specialist"],
+          "tools": ["Read", "Write", "MultiEdit", "Bash", "Grep", "WebFetch", "Task"],
+          "activation_patterns": ["API design", "REST", "GraphQL", "OpenAPI", "gateway"],
+          "last_updated": "2025-01-17",
+          "maintainer": "ubehera"
+        }
+      }
+    }
+  },
+  "quality_framework": {
+    "scoring_criteria": {
+      "completeness": 0.25,
+      "accuracy": 0.25,
+      "usability": 0.20,
+      "performance": 0.15,
+      "maintainability": 0.15
+    },
+    "tier_requirements": {
+      "0": 9.0,
+      "1": 8.0,
+      "2": 7.5,
+      "3": 7.0,
+      "4": 6.8,
+      "5": 6.5
+    }
+  },
+  "routing_rules": {
+    "primary_keywords": {
+      "system_design": ["system-design-specialist"],
+      "api": ["api-platform-engineer"],
+      "security": ["security-architect"],
+      "performance": ["performance-optimization-specialist"],
+      "cloud": ["aws-cloud-architect"],
+      "data": ["data-pipeline-engineer"],
+      "ml": ["machine-learning-engineer"],
+      "devops": ["devops-automation-expert"],
+      "fullstack": ["full-stack-architect"]
+    },
+    "fallback_chain": [
+      "agent-coordinator",
+      "system-design-specialist",
+      "full-stack-architect"
+    ]
+  }
+}

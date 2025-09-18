@@ -30,7 +30,7 @@ Use this checklist before opening a PR for any agent in `agents/`.
 ## Documentation
 - [ ] Update `agents/README.md` (matrix/triggers) if adding/renaming
 - [ ] Update `CLAUDE.md` if standards or workflows change
-- [ ] Confirm `AGENTS.md` remains accurate
+- [ ] Confirm `README.md` remains accurate
 
 ## Configuration & Security
 - [ ] Review `.mcp.json` if adding servers; no credentials committed

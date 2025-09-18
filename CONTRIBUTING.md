@@ -6,7 +6,7 @@ Thanks for improving this repository. Please read this short guide before openin
 - Primary contributions target this repository (agents, commands, scripts).
 
 ## Start Here
-- Read: `AGENTS.md` (repo guidelines)
+- Read: `README.md` (repo guidelines)
 - Standards: `CLAUDE.md` (agent spec and workflows)
 - Agent checklist: `agents/AGENT_CHECKLIST.md`
 
@@ -26,7 +26,7 @@ cp agents/*.md ~/.claude/agents/ \
 ## Documentation Updates
 - When adding/renaming agents, update:
   - `agents/README.md` (matrix and triggers)
-  - `AGENTS.md` (stays accurate and concise)
+  - `prompts/CLAUDE.md` (stays accurate and concise)
   - `CLAUDE.md` (if standards/workflows change)
 
 ## Security & Configuration
