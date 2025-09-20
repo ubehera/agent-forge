@@ -7,8 +7,7 @@ pass=0; warn=0; fail=0
 
 echo "Verifying agents in: $AGENTS_DIR"
 
-for file in "$AGENTS_DIR"/*.md; do
-  [[ -f "$file" ]] || continue
+while IFS= read -r -d '' file; do
   base=$(basename "$file")
   case "$base" in
     README.md|TESTING.md|AGENT_CHECKLIST.md)
@@ -41,11 +40,11 @@ for file in "$AGENTS_DIR"/*.md; do
     echo "[FAIL] $base: ${errs[*]}"
     ((fail++))
   else
-    echo "[OK]   $base"
+    rel_path=${file#"$AGENTS_DIR/"}
+    printf '[OK]   %s (%s)\n' "$base" "$rel_path"
     ((pass++))
   fi
-done
+done < <(find "$AGENTS_DIR" -mindepth 1 -type f -name '*.md' -print0 | sort -z)
 
 echo "\nSummary: $pass ok, $warn warnings, $fail failures"
 exit $fail
-

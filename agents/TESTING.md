@@ -6,14 +6,18 @@ This document provides comprehensive testing procedures for validating the ubehe
 
 ### Installation Verification
 ```bash
-# Copy agents to Claude Code directory
-cp agents/*.md ~/.claude/agents/
+# Install or refresh all agents locally
+./scripts/install-agents.sh --user
 
-# Verify all agents are installed
-ls ~/.claude/agents/ | grep -E "(api-platform|aws-cloud|data-pipeline|devops-automation|full-stack|machine-learning|performance-optimization|security-architect|system-design)"
+# Validate structure and metadata
+./scripts/verify-agents.sh
 
-# Count should be 10 agents
-ls ~/.claude/agents/*.md | wc -l
+# Confirm expected agents exist in Claude Code's directory
+find ~/.claude/agents -maxdepth 1 -type f -name '*.md' \
+  | grep -E '(agent-coordinator|api-platform-engineer|code-reviewer|error-diagnostician|performance-optimization-specialist|system-design-specialist|test-engineer|frontend-expert|aws-cloud-architect|data-pipeline-engineer|devops-automation-expert|full-stack-architect|machine-learning-engineer|research-librarian|security-architect)'
+
+# Count should be 22 agents
+find ~/.claude/agents -maxdepth 1 -type f -name '*.md' | wc -l
 ```
 
 ### Restart Requirement
@@ -124,6 +128,57 @@ Test each agent's automatic invocation by using trigger keywords from their enha
 - [ ] "Official spec for JSON Merge Patch"
 
 **Expected Result:** Should invoke `research-librarian`
+
+
+### 11. agent-coordinator
+**Test Phrases:**
+- [ ] "Coordinate multiple specialists for a payments launch"
+- [ ] "Break this monolith migration into agent-sized tasks"
+- [ ] "Design a workflow that routes work between security and devops"
+- [ ] "Manage dependencies across frontend, backend, and data teams"
+- [ ] "Run a quality gate across all outputs"
+
+**Expected Result:** Should invoke `agent-coordinator`
+
+### 12. code-reviewer
+**Test Phrases:**
+- [ ] "Review this pull request for security issues"
+- [ ] "Identify edge cases in this diff"
+- [ ] "Call out missing tests for this feature"
+- [ ] "Spot style violations in this Typescript module"
+- [ ] "Summarize high-risk findings in this change set"
+
+**Expected Result:** Should invoke `code-reviewer`
+
+### 13. error-diagnostician
+**Test Phrases:**
+- [ ] "Explain this stack trace from production"
+- [ ] "Why is this service returning intermittent 500s?"
+- [ ] "Diagnose the root cause for elevated latency"
+- [ ] "Help me triage this incident report"
+- [ ] "Propose a containment plan for this bug"
+
+**Expected Result:** Should invoke `error-diagnostician`
+
+### 14. test-engineer
+**Test Phrases:**
+- [ ] "Design an end-to-end test plan for this API"
+- [ ] "Recommend regression tests for this feature"
+- [ ] "Improve flaky Cypress coverage"
+- [ ] "Select frameworks for contract testing"
+- [ ] "Explain how to measure test coverage effectively"
+
+**Expected Result:** Should invoke `test-engineer`
+
+### 15. frontend-expert
+**Test Phrases:**
+- [ ] "Optimize React components for Core Web Vitals"
+- [ ] "Design a responsive layout with Tailwind"
+- [ ] "Implement an accessible modal in Vue 3"
+- [ ] "Debug hydration mismatches in Next.js"
+- [ ] "Recommend a state management pattern for complex UI"
+
+**Expected Result:** Should invoke `frontend-expert`
 
 ## Agent Quality Testing
 
@@ -269,3 +324,73 @@ system-design-specialist      | __/5          |
 **Tested By**: ___________
 **Overall Status**: [ ] PASS [ ] FAIL [ ] NEEDS IMPROVEMENT
 **Notes**: ________________________________________________
+
+### 16. python-expert
+**Test Phrases:**
+- [ ] "Refactor this FastAPI service using dependency injection"
+- [ ] "Optimize this pandas pipeline for 10x more data"
+- [ ] "Explain why this asyncio task is blocking the event loop"
+- [ ] "Generate a Poetry project scaffold with pytest and mypy configured"
+- [ ] "Add OpenTelemetry tracing to this Django REST endpoint"
+
+**Expected Result:** Should invoke `python-expert`
+
+### 17. backend-architect
+**Test Phrases:**
+- [ ] "Decompose the billing monolith into microservices"
+- [ ] "Design REST and event contracts for order fulfillment"
+- [ ] "Recommend resilience patterns for this gRPC service"
+- [ ] "Plan an AsyncAPI schema for our notification system"
+- [ ] "How should we version GraphQL mutations across teams?"
+
+**Expected Result:** Should invoke `backend-architect`
+
+### 18. database-architect
+**Test Phrases:**
+- [ ] "Design a PostgreSQL schema for multi-tenant billing"
+- [ ] "Tune this slow query with EXPLAIN ANALYZE"
+- [ ] "Plan DynamoDB single-table modelling for an order system"
+- [ ] "Create a migration strategy for zero-downtime column rename"
+- [ ] "Set up PITR backups and failover for MySQL 8"
+
+**Expected Result:** Should invoke `database-architect`
+
+### 19. observability-engineer
+**Test Phrases:**
+- [ ] "Define SLIs and SLOs for checkout latency"
+- [ ] "Instrument this Node.js service with OpenTelemetry"
+- [ ] "Create Prometheus burn-rate alerts for errors"
+- [ ] "Design Grafana dashboards for Kubernetes workloads"
+- [ ] "Reduce alert fatigue by consolidating noisy pager rules"
+
+**Expected Result:** Should invoke `observability-engineer`
+
+### 20. mobile-specialist
+**Test Phrases:**
+- [ ] "Optimize our React Native app for startup speed"
+- [ ] "Add biometric authentication to the iOS and Android clients"
+- [ ] "Configure Flutter for staged rollouts with Fastlane"
+- [ ] "Design an offline-first sync strategy for mobile orders"
+- [ ] "Investigate ANR spikes reported in Play Console"
+
+**Expected Result:** Should invoke `mobile-specialist`
+
+### 21. typescript-architect
+**Test Phrases:**
+- [ ] "Migrate this repo to TypeScript strict mode"
+- [ ] "Set up shared API types between Next.js and our Node backend"
+- [ ] "Reduce tsc compile time in the Turborepo"
+- [ ] "Design a zod-based runtime validation layer for our API"
+- [ ] "Fix type errors after upgrading to TypeScript 5.4"
+
+**Expected Result:** Should invoke `typescript-architect`
+
+### 22. sre-incident-responder
+**Test Phrases:**
+- [ ] "Lead an incident response for elevated checkout errors"
+- [ ] "Draft a blameless postmortem template"
+- [ ] "Tune PagerDuty alerts to respect SLO burn rates"
+- [ ] "Plan a chaos game day for Kubernetes failover"
+- [ ] "Improve MTTR for our payments service"
+
+**Expected Result:** Should invoke `sre-incident-responder`

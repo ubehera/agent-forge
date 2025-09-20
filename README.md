@@ -5,10 +5,10 @@
 Production-ready Claude Code agents with checklists and MCP integrations—build, test, and maintain in one workspace.
 
 ## Structure
-- `agents/`: Claude Code subagents (`.md` with YAML frontmatter)
-- `commands/`, `scripts/`: Optional helpers and maintenance utilities
+- `agents/`: Claude Code subagents (`.md` with YAML frontmatter) grouped by tiered directories
+- `commands/`, `scripts/`: Optional helpers and maintenance utilities (installation, verification, scoring)
 
-See `AGENTS.md` for contributor guidelines and `agents/AGENT_CHECKLIST.md` for additions/updates.
+See `../AGENTS.md` for contributor guidelines and `agents/AGENT_CHECKLIST.md` for additions/updates.
 
 ## Quick Start
 ```bash
@@ -16,11 +16,25 @@ See `AGENTS.md` for contributor guidelines and `agents/AGENT_CHECKLIST.md` for a
 git clone https://github.com/ubehera/agent-forge.git
 cd agent-forge
 
-# Install agents for current user (or project)
-cp agents/*.md ~/.claude/agents/ \
-  || (mkdir -p .claude/agents && cp agents/*.md .claude/agents/)
-# Restart Claude Code, then test prompts matching the agent description
+# Install every agent (user scope)
+./scripts/install-agents.sh --user
+
+# Validate frontmatter/tooling before opening a PR
+./scripts/verify-agents.sh
+
+# (Optional) Manual copy fallback
+find agents -mindepth 2 -maxdepth 2 -name '*.md' -print0 \
+  | xargs -0 cp -t ~/.claude/agents/
 ```
+
+## Documentation Map
+- `SYSTEM_OVERVIEW.md`: Tier breakdown, workflow lifecycle, and hand-off patterns
+- `docs/IMPLEMENTATION_ROADMAP.md`: Delivered milestones and upcoming specialist backlog
+- `agents/README.md`: Current agent catalog with triggers, tiers, and toolsets
+- `../AGENTS.md`: Contributor guide for the entire workspace
+- `agents/AGENT_CHECKLIST.md`: Pre-flight verification for new or updated agents
+- `prompts/CLAUDE.md`: Operating instructions used by Claude Code when working in this repo
+- `docs/README.md`: Index of project documentation for quick navigation
 
 ## License
 - Code, documentation, and agents are licensed under Apache License 2.0. See `LICENSE`.

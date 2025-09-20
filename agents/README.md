@@ -1,163 +1,68 @@
-# Claude Code Agent Collection - ubehera
+# Claude Code Agent Collection
 
-A curated collection of specialized Claude Code subagents for professional software engineering. Each agent follows official Claude Code specifications with YAML frontmatter and comprehensive domain expertise.
+Central catalog for the agent-forge workspace. Every agent complies with Claude Code frontmatter requirements and ships with pragmatic guidance.
 
-## Agent Capability Matrix
+## Active Agents
+| Agent | Tier | Domain Focus | Tool Set |
+|-------|------|--------------|----------|
+| `agent-coordinator` | 00-meta | Multi-agent orchestration | Task, Read, Write, MultiEdit |
+| `api-platform-engineer` | 01-foundation | API design & governance | Read, Write, MultiEdit, Bash, Grep, WebFetch, Task |
+| `code-reviewer` | 01-foundation | Code review & quality gates | Read, Grep, Glob, Task, WebSearch |
+| `error-diagnostician` | 01-foundation | Production debugging & triage | Read, Grep, Bash, Glob, WebSearch, Task |
+| `performance-optimization-specialist` | 01-foundation | End-to-end performance tuning | Read, Write, MultiEdit, Bash, Grep, Task |
+| `system-design-specialist` | 01-foundation | Distributed systems architecture | Read, Write, MultiEdit, WebSearch, Task |
+| `test-engineer` | 01-foundation | Test strategy & automation | Read, Write, MultiEdit, Bash, Grep, Task |
+| `frontend-expert` | 02-development | Modern web UI engineering | Read, Write, MultiEdit, WebFetch |
+| `mobile-specialist` | 02-development | Native + cross-platform mobile | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `python-expert` | 02-development | Python services & libraries | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `typescript-architect` | 02-development | TypeScript platforms & tooling | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `aws-cloud-architect` | 03-specialists | Cloud architecture on AWS | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `backend-architect` | 03-specialists | Service architecture & APIs | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `data-pipeline-engineer` | 03-specialists | ETL and streaming pipelines | Read, Write, MultiEdit, Bash, Task |
+| `database-architect` | 03-specialists | Data modelling & performance | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `devops-automation-expert` | 03-specialists | CI/CD and platform automation | Read, Write, MultiEdit, Bash, Task, Grep |
+| `full-stack-architect` | 03-specialists | End-to-end web application delivery | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `observability-engineer` | 03-specialists | Metrics, logging, tracing, SLOs | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `sre-incident-responder` | 03-specialists | Incident response & reliability | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `machine-learning-engineer` | 04-experts | MLOps and production ML systems | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `research-librarian` | 06-integration | Primary-source research & synthesis | Read, Write, MultiEdit, WebSearch |
+| `security-architect` | 07-quality | Threat modelling & secure design | Read, Write, MultiEdit, Bash, Grep, WebSearch, Task |
 
-| Agent | Primary Domain | Security Level | Performance Focus | Best For | Tool Set |
-|-------|---------------|----------------|-------------------|----------|----------|
-| **api-platform-engineer** | API Design & Governance | OAuth/JWT, Rate Limiting | Gateway optimization, Caching | REST/GraphQL APIs, Developer portals | Read, Write, MultiEdit, Bash, Grep, WebFetch, Task |
-| **aws-cloud-architect** | Cloud Infrastructure | IAM, KMS, WAF | Auto-scaling, Cost optimization | AWS deployments, Well-Architected | Read, Write, MultiEdit, Bash, Task, WebSearch |
-| **data-pipeline-engineer** | ETL/Streaming | Data privacy | Spark optimization, Parallel processing | Data lakes, Real-time processing | Read, Write, MultiEdit, Bash, Task |
-| **devops-automation-expert** | CI/CD & Automation | Security scanning, Secrets mgmt | Pipeline efficiency | GitOps, IaC, Monitoring | Read, Write, MultiEdit, Bash, Task, Grep |
-| **full-stack-architect** | Web Applications | OWASP compliance | Core Web Vitals, Bundle optimization | Modern web apps, React/Next.js | Read, Write, MultiEdit, Bash, Task, WebSearch |
-| **machine-learning-engineer** | ML/AI Systems | Model security | Distributed training, Inference optimization | MLOps, Model serving | Read, Write, MultiEdit, Bash, Task, WebSearch |
-| **performance-optimization-specialist** | All-domain Performance | Performance-security balance | Expert optimization | Bottleneck resolution, Monitoring | Read, Write, MultiEdit, Bash, Grep, Task |
-| **security-architect** | Security & Compliance | Expert all domains | Security-performance tradeoffs | Threat modeling, Compliance | Read, Write, MultiEdit, Bash, Grep, WebSearch |
-| **system-design-specialist** | Distributed Systems | Security patterns | Scalability, Reliability | Large-scale architecture | Read, Write, MultiEdit, WebSearch, Task |
-| **research-librarian** | Research & Discovery | Trusted sources | Efficient retrieval | Unknown URLs, literature surveys | Read, Write, MultiEdit, WebSearch |
+## Invocation Cheatsheet
+Use natural language triggers that mirror the descriptions above. Examples:
+- **APIs** → `api-platform-engineer`
+- **Cloud (AWS)** → `aws-cloud-architect`
+- **CI/CD or Infra-as-code** → `devops-automation-expert`
+- **MLOps / ML pipelines** → `machine-learning-engineer`
+- **Frontend UI / React / Next.js** → `frontend-expert`
+- **Mobile (iOS/Android/cross-platform)** → `mobile-specialist`
+- **TypeScript platforms / toolchains** → `typescript-architect`
+- **Python services / libraries** → `python-expert`
+- **Backend architecture / microservices** → `backend-architect`
+- **Database design / migrations** → `database-architect`
+- **Observability / SLOs / telemetry** → `observability-engineer`
+- **Incident response / on-call** → `sre-incident-responder`
+- **Performance regressions** → `performance-optimization-specialist`
+- **Security reviews** → `security-architect`
+- **Complex architecture** → `system-design-specialist`
+- **Research and sourcing** → `research-librarian`
+- **Code review / triage** → `code-reviewer` or `error-diagnostician`
 
-## Invocation Guide
-
-### Automatic Invocation Triggers
-Agents are automatically selected when your request matches their description keywords:
-
-- **API-related**: "REST API", "GraphQL", "OpenAPI", "API gateway", "developer portal" → `api-platform-engineer`
-- **AWS/Cloud**: "AWS", "CloudFormation", "CDK", "cloud architecture", "serverless" → `aws-cloud-architect`
-- **Data processing**: "ETL", "data pipeline", "Spark", "streaming", "Airflow", "Kafka" → `data-pipeline-engineer`
-- **Automation**: "CI/CD", "pipeline", "GitOps", "automation", "deployment" → `devops-automation-expert`
-- **Web development**: "React", "Next.js", "frontend", "full-stack", "web app" → `full-stack-architect`
-- **ML/AI**: "machine learning", "model training", "MLOps", "neural network" → `machine-learning-engineer`
-- **Performance**: "optimization", "slow", "performance", "Core Web Vitals", "bottleneck" → `performance-optimization-specialist`
-- **Security**: "security", "threat", "vulnerability", "compliance", "authentication" → `security-architect`
-- **Architecture**: "system design", "distributed", "scalability", "microservices" → `system-design-specialist`
-- **Research**: "find docs", "RFC", "compare", "which standard/library", "best practice" → `research-librarian`
-
-### Agent Specialization Levels
-
-**🔴 Expert Level (9-10 rating):**
-- `devops-automation-expert` - Gold standard for CI/CD and automation
-- `performance-optimization-specialist` - Comprehensive performance optimization
-- `machine-learning-engineer` - Production-ready MLOps patterns
-
-**🟡 Strong Level (7-8 rating):**
-- `api-platform-engineer` - Solid API governance and platform patterns
-- `data-pipeline-engineer` - Advanced data processing and streaming
-- `system-design-specialist` - Excellent distributed systems knowledge
-- `aws-cloud-architect` - Strong cloud architecture foundations
-
-**🔵 Good Level (6-7 rating):**
-- `security-architect` - Comprehensive security knowledge
-- `full-stack-architect` - Modern web application patterns
-
-## Common Use Case Combinations
-
-### Building Secure APIs
-1. `api-platform-engineer` - API design and specification
-2. `research-librarian` - Source discovery for specs and vendor docs
-2. `security-architect` - Security patterns and threat modeling  
-3. `performance-optimization-specialist` - API performance tuning
-4. `devops-automation-expert` - CI/CD and deployment automation
-
-### ML Platform Development
-1. `machine-learning-engineer` - ML pipeline and model serving
-2. `data-pipeline-engineer` - Feature engineering and data processing
-3. `aws-cloud-architect` - Cloud infrastructure for ML
-4. `security-architect` - ML model security and data privacy
-
-### Production Web Application
-1. `full-stack-architect` - Application architecture and implementation
-2. `devops-automation-expert` - CI/CD and deployment pipelines
-3. `security-architect` - Security implementation and compliance
-4. `performance-optimization-specialist` - Frontend and backend optimization
-
-### Distributed System Design
-1. `system-design-specialist` - Overall architecture and scalability
-2. `performance-optimization-specialist` - Performance requirements
-3. `security-architect` - Security architecture and threat modeling
-4. `devops-automation-expert` - Deployment and operations strategy
-
-### Cloud Migration Project
-1. `aws-cloud-architect` - Cloud architecture and migration strategy
-2. `devops-automation-expert` - Automation and CI/CD setup
-3. `security-architect` - Cloud security and compliance
-4. `performance-optimization-specialist` - Performance optimization
-
-## Agent Quality Standards
-
-### All agents include:
-- ✅ **Claude Code Compliance**: Proper YAML frontmatter with markdown body
-- ✅ **Tool Restrictions**: Optimized tool sets for performance and security
-- ✅ **Practical Examples**: Working code implementations
-- ✅ **Success Metrics**: Measurable KPIs and deliverables
-- ✅ **Quality Checklists**: Comprehensive validation criteria
-- ✅ **Documentation Standards**: Architecture diagrams and specifications
-
-### Recent Expert Review Scores:
-- **Security Architecture**: 5.8/10 (improvements planned)
-- **Performance Optimization**: 8.2/10 (excellent coverage)
-- **ML Engineering**: 7.5/10 (strong MLOps foundation)
-- **System Design**: 8.2/10 (exceptional patterns)
-- **DevOps Automation**: 7.2/10 (strong technical foundation)
-
-## MCP Tool Compatibility
-
-**Note**: MCP tool availability depends on your Claude Code configuration. Agents will use available MCP tools when present:
-
-- **mcp__memory**: State management and knowledge persistence
-- **mcp__fetch**: External API testing and validation
-- **mcp__sequential-thinking**: Complex problem decomposition
-- **mcp__ide**: Code execution and diagnostics (if configured)
-
-Agents function fully without MCP tools but leverage them when available for enhanced capabilities.
-
-## Installation & Usage
-
-### For Current User:
+## Installation & Validation
 ```bash
-cp agents/*.md ~/.claude/agents/
+# Install or refresh all agents for the current user
+./scripts/install-agents.sh --user
+
+# Validate structure, frontmatter, and tool declarations
+./scripts/verify-agents.sh
+
+# Generate a quality snapshot (optional)
+python3 scripts/quality-scorer.py --agents-dir agents --output quality-report.json
 ```
+- Restart Claude Code after installation.
+- Follow `agents/TESTING.md` to exercise automatic invocation and cross-agent workflows.
 
-### For Project Only:
-```bash
-mkdir -p .claude/agents
-cp agents/*.md .claude/agents/
-```
-
-### Verify Installation:
-```bash
-ls ~/.claude/agents/ | grep -E "(api-platform|aws-cloud|system-design)"
-```
-
-**Important**: Restart Claude Code after installing or modifying agents.
-
-## Development Philosophy
-
-This collection prioritizes:
-1. **Production-ready patterns** over academic examples
-2. **Practical implementation** over theoretical knowledge
-3. **Security by default** across all domains
-4. **Performance awareness** in all recommendations
-5. **DevOps integration** throughout the development lifecycle
-
-## Contributing
-
-When enhancing agents:
-- Follow official Claude Code subagent specifications
-- Include practical code examples
-- Add measurable success criteria
-- Test invocation accuracy with sample requests
-- Maintain tool restriction optimizations
-
-## Changelog
-
-- **v1.0**: Initial collection with 9 specialized agents
-- **v1.1**: Added capability matrix, invocation guide, and collaboration patterns
-- **v1.2**: Enhanced descriptions for better automatic invocation (planned)
-- **v1.3**: Integrated security and DevOps context across all agents (planned)
-
----
-
-**Maintained by**: Umank Behera  
-**Compatibility**: Claude Code Official Specifications  
-**Last Updated**: 2025-01-26
+## Contribution Notes
+- Place new agents in the appropriate tier directory (`agents/00-meta`, `agents/01-foundation`, ...).
+- Keep `tools` lists minimal to match least-privilege guidance.
+- Update this catalog, `../AGENTS.md`, and `configs/agent-metadata.json` whenever agents are added, renamed, or removed.

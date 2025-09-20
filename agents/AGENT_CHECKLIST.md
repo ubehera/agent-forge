@@ -18,18 +18,16 @@ Use this checklist before opening a PR for any agent in `agents/`.
 - [ ] No secrets or sensitive data
 
 ## Validation
-- [ ] Install locally for current user or project:
-  ```bash
-  cp agents/*.md ~/.claude/agents/ \
-  || (mkdir -p .claude/agents && cp agents/*.md .claude/agents/)
-  ```
+- [ ] Install locally via `./scripts/install-agents.sh --user` (use `--project` when needed)
+- [ ] Run `./scripts/verify-agents.sh` to confirm frontmatter, filenames, and tools
 - [ ] Restart Claude Code to load changes
 - [ ] Test prompts that should trigger the agent and confirm selection
 - [ ] Verify tool restrictions behave as intended
 
 ## Documentation
 - [ ] Update `agents/README.md` (matrix/triggers) if adding/renaming
-- [ ] Update `CLAUDE.md` if standards or workflows change
+- [ ] Update `../CLAUDE.md` if standards or workflows change
+- [ ] Review `SYSTEM_OVERVIEW.md` and `docs/IMPLEMENTATION_ROADMAP.md` for alignment
 - [ ] Confirm `README.md` remains accurate
 
 ## Configuration & Security

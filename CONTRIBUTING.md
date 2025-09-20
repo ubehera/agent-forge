@@ -7,16 +7,16 @@ Thanks for improving this repository. Please read this short guide before openin
 
 ## Start Here
 - Read: `README.md` (repo guidelines)
-- Standards: `CLAUDE.md` (agent spec and workflows)
+- Standards: `../CLAUDE.md` (agent spec and workflows)
 - Agent checklist: `agents/AGENT_CHECKLIST.md`
 
 ## Local Validation
 ```bash
-# Install agents for current user (or project)
-cp agents/*.md ~/.claude/agents/ \
-  || (mkdir -p .claude/agents && cp agents/*.md .claude/agents/)
-# Restart Claude Code, then test prompts matching the agent description
+./scripts/install-agents.sh --user   # or --project for repo-scoped installs
+./scripts/verify-agents.sh           # ensure frontmatter, names, tools are clean
 ```
+- Restart Claude Code after installing agents.
+- Validate the behaviour of any updated agent before submitting a PR.
 
 ## Pull Requests
 - Use the PR template in `.github/PULL_REQUEST_TEMPLATE.md`.
@@ -27,7 +27,6 @@ cp agents/*.md ~/.claude/agents/ \
 - When adding/renaming agents, update:
   - `agents/README.md` (matrix and triggers)
   - `prompts/CLAUDE.md` (stays accurate and concise)
-  - `CLAUDE.md` (if standards/workflows change)
 
 ## Security & Configuration
 - Review `.mcp.json` changes carefully; never commit secrets. Prefer env vars.

@@ -48,7 +48,7 @@ Frontend_Task:
 
 Backend_Task:
   description: "Implement microservices architecture"
-  subagent_type: "backend-expert"
+  subagent_type: "full-stack-architect"
 
 Security_Task:
   description: "Perform security threat modeling"
@@ -224,7 +224,7 @@ Synthesis:
 ```yaml
 Development:
   description: "Build feature implementation"
-  subagent_type: "backend-expert"
+  subagent_type: "full-stack-architect"
 
 Code_Review:
   description: "Review code quality and patterns"
@@ -323,3 +323,30 @@ Final_Decision:
 ---
 
 These patterns provide a comprehensive framework for effective agent delegation and coordination, ensuring optimal task distribution and high-quality collaborative outcomes.
+### 6. Incident Recovery Loop
+**Pattern**: Coordinate rapid mitigation and follow-up actions
+```yaml
+Incident_Command:
+  description: "Lead response for checkout errors"
+  subagent_type: "sre-incident-responder"
+
+Diagnostics:
+  description: "Diagnose service degradation"
+  subagent_type: "error-diagnostician"
+  dependencies: [Incident_Command]
+
+Mitigation:
+  description: "Roll back deployment and restore service"
+  subagent_type: "devops-automation-expert"
+  dependencies: [Incident_Command, Diagnostics]
+
+Postmortem:
+  description: "Capture lessons and action items"
+  subagent_type: "observability-engineer"
+  dependencies: [Mitigation]
+```
+
+**When to use**:
+- High-severity incidents with customer impact
+- Need coordinated response, rollback, and learning cycle
+- Desire to codify incident metrics (MTTD/MTTR, error budgeting)

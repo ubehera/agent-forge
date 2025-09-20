@@ -82,29 +82,53 @@ EOF
 list_agents() {
     print_info "Available agents in $AGENTS_DIR:"
     echo ""
-    
-    for agent in "$AGENTS_DIR"/*.md; do
-        if [[ -f "$agent" ]]; then
-            basename=$(basename "$agent")
-            name="${basename%.md}"
-            
-            # Extract description from frontmatter
-            description=$(grep -m 1 "^description:" "$agent" 2>/dev/null | sed 's/description: //' | cut -c1-60)
-            
-            if [[ -n "$description" ]]; then
-                printf "  ${GREEN}%-35s${NC} %s...\n" "$name" "$description"
-            else
-                printf "  ${GREEN}%-35s${NC}\n" "$name"
-            fi
+    while IFS= read -r -d '' agent; do
+        basename=$(basename "$agent")
+        name="${basename%.md}"
+        rel_path=${agent#"$AGENTS_DIR/"}
+
+        # Extract description from frontmatter
+        description=$(grep -m 1 "^description:" "$agent" 2>/dev/null | sed 's/description: //' | cut -c1-60)
+
+        if [[ -n "$description" ]]; then
+            printf "  ${GREEN}%-35s${NC} (%s) %s...\n" "$name" "$rel_path" "$description"
+        else
+            printf "  ${GREEN}%-35s${NC} (%s)\n" "$name" "$rel_path"
         fi
-    done
+    done < <(find "$AGENTS_DIR" -mindepth 1 -type f -name '*.md' \
+        ! -name 'README.md' ! -name 'TESTING.md' ! -name 'AGENT_CHECKLIST.md' -print0 | sort -z)
     echo ""
+}
+
+# Resolve an agent identifier (name or relative path) to a file path
+resolve_agent_path() {
+    local identifier="$1"
+
+    # Accept relative paths (with or without .md)
+    if [[ -f "$AGENTS_DIR/${identifier}" ]]; then
+        printf '%s\n' "$AGENTS_DIR/${identifier}"
+        return 0
+    fi
+    if [[ -f "$AGENTS_DIR/${identifier}.md" ]]; then
+        printf '%s\n' "$AGENTS_DIR/${identifier}.md"
+        return 0
+    fi
+
+    # Fallback: search by file name within tiered directories
+    local match
+    match=$(find "$AGENTS_DIR" -mindepth 1 -maxdepth 3 -type f -name "${identifier}.md" | head -n 1)
+    if [[ -z "$match" ]]; then
+        return 1
+    fi
+
+    printf '%s\n' "$match"
+    return 0
 }
 
 # Function to validate agent exists
 validate_agent() {
     local agent="$1"
-    if [[ ! -f "$AGENTS_DIR/${agent}.md" ]]; then
+    if ! resolve_agent_path "$agent" > /dev/null; then
         print_error "Agent '$agent' not found in $AGENTS_DIR"
         return 1
     fi
@@ -136,29 +160,38 @@ install_agents() {
     # Determine which agents to install
     if [[ -n "$SELECTED_AGENTS" ]]; then
         IFS=',' read -ra agents_to_install <<< "$SELECTED_AGENTS"
+        local resolved_agents=()
+        for agent in "${agents_to_install[@]}"; do
+            agent=$(echo "$agent" | xargs)
+            if resolved_path=$(resolve_agent_path "$agent"); then
+                resolved_agents+=("$resolved_path")
+            else
+                return 1
+            fi
+        done
+        agents_to_install=("${resolved_agents[@]}")
     else
         # Install all valid agent files (with YAML frontmatter + name)
-        for file in "$AGENTS_DIR"/*.md; do
+        while IFS= read -r -d '' file; do
             [[ -f "$file" ]] || continue
-            # Skip non-agent docs in the folder
             basename=$(basename "$file")
             case "$basename" in
                 README.md|TESTING.md|AGENT_CHECKLIST.md)
                     continue
                     ;;
             esac
-            # Must have frontmatter and name in first 20 lines
             if head -n 1 "$file" | grep -q '^---$' && head -n 20 "$file" | grep -q '^name:'; then
-                agents_to_install+=("${basename%.md}")
+                agents_to_install+=("$file")
             fi
-        done
+        done < <(find "$AGENTS_DIR" -type f -name '*.md' -print0)
     fi
-    
+
     # Validate all agents before installation
     print_info "Validating agents..."
-    for agent in "${agents_to_install[@]}"; do
-        agent=$(echo "$agent" | xargs) # Trim whitespace
-        if ! validate_agent "$agent"; then
+    for source_file in "${agents_to_install[@]}"; do
+        local agent_base=$(basename "${source_file%.md}")
+        if ! resolve_agent_path "$agent_base" > /dev/null; then
+            print_error "Agent '$agent_base' not found in $AGENTS_DIR"
             return 1
         fi
     done
@@ -181,9 +214,8 @@ install_agents() {
     local installed_count=0
     local skipped_count=0
     
-    for agent in "${agents_to_install[@]}"; do
-        agent=$(echo "$agent" | xargs) # Trim whitespace
-        local source_file="$AGENTS_DIR/${agent}.md"
+    for source_file in "${agents_to_install[@]}"; do
+        local agent=$(basename "${source_file%.md}")
         local target_file="$target_dir/${agent}.md"
         
         if [[ "$VERBOSE" == true ]]; then
