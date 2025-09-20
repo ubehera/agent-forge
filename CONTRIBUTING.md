@@ -7,7 +7,6 @@ Thanks for improving this repository. Please read this short guide before openin
 
 ## Start Here
 - Read: `README.md` (repo guidelines)
-- Standards: `../CLAUDE.md` (agent spec and workflows)
 - Agent checklist: `agents/AGENT_CHECKLIST.md`
 
 ## Local Validation
@@ -26,7 +25,6 @@ Thanks for improving this repository. Please read this short guide before openin
 ## Documentation Updates
 - When adding/renaming agents, update:
   - `agents/README.md` (matrix and triggers)
-  - `prompts/CLAUDE.md` (stays accurate and concise)
 
 ## Security & Configuration
 - Review `.mcp.json` changes carefully; never commit secrets. Prefer env vars.
