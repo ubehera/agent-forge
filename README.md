@@ -4,11 +4,22 @@
 
 Production-ready Claude Code agents with checklists and MCP integrations—build, test, and maintain in one workspace.
 
-## Structure
-- `agents/`: Claude Code subagents (`.md` with YAML frontmatter) grouped by tiered directories
-- `commands/`, `scripts/`: Optional helpers and maintenance utilities (installation, verification, scoring)
+## System Architecture
 
-See `../AGENTS.md` for contributor guidelines and `agents/AGENT_CHECKLIST.md` for additions/updates.
+### 🎯 Core Components
+- **22 Specialized Agents**: Tiered collection from orchestration to domain experts
+- **37 Slash Commands**: Quick access workflows using latest Claude models (Opus 4.1, Sonnet 4)
+- **Automation Scripts**: Install, verify, and score agent quality
+- **MCP Integration**: Memory persistence and advanced reasoning capabilities
+
+### 📊 Agent Tiers (22 Total)
+- **Tier 0 (Meta)**: `agent-coordinator` - Multi-agent orchestration
+- **Tier 1 (Foundation)**: 6 agents - Core engineering (API, testing, review, debugging)
+- **Tier 2 (Development)**: 4 agents - Language/platform specialists
+- **Tier 3 (Specialists)**: 8 agents - Domain experts (cloud, backend, database, DevOps)
+- **Tier 4 (Experts)**: 1 agent - Machine learning/MLOps
+- **Tier 6 (Integration)**: 1 agent - Research and documentation
+- **Tier 7 (Security)**: 1 agent - Security architecture and compliance
 
 ## Quick Start
 ```bash
@@ -22,19 +33,34 @@ cd agent-forge
 # Validate frontmatter/tooling before opening a PR
 ./scripts/verify-agents.sh
 
-# (Optional) Manual copy fallback
-find agents -mindepth 2 -maxdepth 2 -name '*.md' -print0 \
-  | xargs -0 cp -t ~/.claude/agents/
+# Test agent quality scoring
+python3 scripts/quality-scorer.py --agents-dir agents
+
+# Restart Claude Code to load agents
 ```
 
-## Documentation Map
-- `SYSTEM_OVERVIEW.md`: Tier breakdown, workflow lifecycle, and hand-off patterns
-- `docs/IMPLEMENTATION_ROADMAP.md`: Delivered milestones and upcoming specialist backlog
-- `agents/README.md`: Current agent catalog with triggers, tiers, and toolsets
-- `../AGENTS.md`: Contributor guide for the entire workspace
-- `agents/AGENT_CHECKLIST.md`: Pre-flight verification for new or updated agents
-- `prompts/CLAUDE.md`: Operating instructions used by Claude Code when working in this repo
-- `docs/README.md`: Index of project documentation for quick navigation
+## Workflow Patterns
+
+### 🔄 Agent Orchestration
+1. **Discovery**: `agent-coordinator` decomposes problems and selects specialists
+2. **Implementation**: Foundation/specialist tiers execute domain work
+3. **Quality Gates**: Review agents validate readiness (test, security, performance)
+4. **Operations**: DevOps agents finalize deployment and monitoring
+
+### 🎯 Common Workflows
+- **Feature Development**: `/workflow` → DDD workflow with quality gates
+- **API Design**: `/api` → `api-platform-engineer` with OpenAPI/GraphQL
+- **Security Review**: `/security-audit` → `security-architect` assessment
+- **Performance**: `/performance` → `performance-optimization-specialist`
+- **Incident Response**: `sre-incident-responder` → diagnosis → mitigation
+
+## Key Documentation
+- `agents/README.md`: Complete agent catalog with invocation triggers
+- `agents/AGENT_CHECKLIST.md`: Pre-flight checklist for agent updates
+- `agents/TESTING.md`: Comprehensive testing procedures
+- `commands/README.md`: Slash command catalog and usage
+- `patterns/orchestration/`: Multi-agent coordination patterns
+- `prompts/CLAUDE.md`: Operating instructions for Claude Code
 
 ## License
 - Code, documentation, and agents are licensed under Apache License 2.0. See `LICENSE`.
