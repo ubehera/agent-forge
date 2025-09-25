@@ -32,49 +32,64 @@ Frontmatter Fields:
   description: Brief command purpose
   args: <required> [optional] [--flag value]
   tools: Specific tools with restrictions (e.g., Bash(npm test:*))
-  model: claude-3-5-haiku-20241022 or claude-3-5-sonnet-20241022
+  model: claude-opus-4-1-20250805 or claude-sonnet-4-20250514
 ```
 
 ## Command Catalog
 
-### 🎯 Core Workflows
+### 🎯 Meta & Orchestration (`00-meta/`)
 - `/workflow` - Execute complete DDD workflow with quality gates
-- `/feature` - Full-stack feature development pipeline
-- `/api` - Design APIs with api-platform-engineer
-- `/deploy` - Review and deployment with safety checks
-
-### 🤖 Agent Orchestration
-- `/agent <name> <task>` - Invoke specific agent with context
 - `/orchestrate` - Coordinate multi-agent workflows
-- `/team` - Form specialized agent teams
 - `/parallel-execution` - Run agents in parallel
+- `/team-formation` - Form specialized agent teams
+- `/workflow-patterns` - Common workflow patterns
 
-### ✅ Quality & Testing
+### 🏗️ Foundation (`01-foundation/`)
+- `/api` - Design APIs with api-platform-engineer
+- `/debug` - Intelligent debugging assistance
+
+### 🤖 Agent Commands (`03-agents/`)
+- `/agent <name> <task>` - Direct agent invocation
+- `/agents` - List and manage agents
+
+### ✅ Quality & Testing (`quality/`)
 - `/test [scope]` - Comprehensive testing with coverage gates
 - `/review [scope]` - Code review with multi-level validation
 - `/performance [target]` - Performance analysis and optimization
 - `/security-audit` - Security assessment and remediation
 - `/quality-gates` - Multi-dimensional quality validation
+- `/verify-agents` - Validate agent configuration
+- `/score-agents` - Quality scoring for agents
 
-### 🔧 Development Tools
-- `/debug <error>` - Intelligent debugging assistance
+### 🔄 Workflows (`workflows/`)
+- `/feature-development` - Full-stack feature pipeline
+- `/full-stack-feature` - Complete feature implementation
+- `/review-and-deploy` - Review and deployment with safety checks
+
+### 🔧 Utilities (`utils/` & `05-utilities/`)
 - `/quick-fix <issue>` - Quick fixes for common issues
 - `/docs <library>` - Fetch documentation
 - `/search` - Multi-source intelligent search
-
-### 📦 Project Management
-- `/install-agents` (`setup/install-agents.md`) - Install repository agents
-- `/verify-agents` (`quality/verify-agents.md`) - Validate agent configuration
-- `/score-agents` (`quality/score-agents.md`) - Quality scoring for agents
-- `/release-prepare` (`ops/release-prepare.md`) - Automated release preparation
+- `/search-agents` - Search for specific agents
 
 ### 🚀 Automation & DevOps
-- `/deploy-pipeline` (`automation/deploy-pipeline.md`) - CI/CD pipeline setup
-- `/health-check` (`automation/health-check.md`) - Infrastructure health monitoring
-- `/batch-update` (`automation/batch-update.md`) - Batch operations with rollback
-- `/sync-upstream` (`ops/sync-upstream.md`) - Repository synchronization
-- `/workflow-automation` (`git/workflow-automation.md`) - Git workflow automation
-- `/cleanup-automation` (`maintenance/cleanup-automation.md`) - Repository cleanup
+- **automation/**
+  - `/deploy-pipeline` - CI/CD pipeline setup
+  - `/health-check` - Infrastructure health monitoring
+  - `/batch-update` - Batch operations with rollback
+- **ops/**
+  - `/release-prepare` - Automated release preparation
+  - `/sync-upstream` - Repository synchronization
+- **git/**
+  - `/workflow-automation` - Git workflow automation
+- **maintenance/**
+  - `/cleanup-automation` - Repository cleanup
+- **monitoring/**
+  - `/performance-monitor` - Performance monitoring
+- **setup/**
+  - `/install-agents` - Install repository agents
+- **review/**
+  - `/agent-checklist` - Agent review checklist
 
 ## Usage Examples
 
@@ -153,10 +168,14 @@ Frontmatter Fields:
 ### Creating New Commands
 
 1. **Choose appropriate directory**:
+   - `00-meta/` - Orchestration and coordination
+   - `01-foundation/` - Core development commands
+   - `03-agents/` - Agent-specific commands
+   - `quality/` - Testing and validation
    - `workflows/` - Multi-step processes
-   - `agents/` - Agent-specific commands
-   - `quality/` - Validation and testing
    - `utils/` - Helper utilities
+   - `automation/` - CI/CD and automation
+   - `ops/` - Operations and deployment
 
 2. **Use standard frontmatter**:
    ```yaml
@@ -164,7 +183,7 @@ Frontmatter Fields:
    description: Clear, concise description
    args: <required> [optional] [--flag value]
    tools: Task, Read  # Minimal permissions
-   model: claude-3-5-haiku-20241022  # Or sonnet for complex tasks
+   model: claude-sonnet-4-20250514  # Or opus for complex orchestration
    ---
    ```
 
@@ -185,7 +204,7 @@ Frontmatter Fields:
 
 ## Integration with Agent Ecosystem
 
-Commands seamlessly integrate with 30+ specialized agents:
+Commands seamlessly integrate with 22 specialized agents:
 - **Foundation Tier**: Core development (API, review, test, debug)
 - **Development Tier**: Language specialists (Python, TypeScript, frontend)
 - **Specialist Tier**: Domain experts (cloud, database, DevOps)
