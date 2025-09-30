@@ -2,7 +2,7 @@
 description: Intelligent debugging assistance for errors and issues
 args: <error-description-or-log>
 tools: Task, Read, Grep
-model: claude-sonnet-4-20250514
+model: claude-sonnet-4-5
 ---
 
 # Intelligent Debugging Assistant

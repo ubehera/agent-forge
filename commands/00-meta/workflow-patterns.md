@@ -2,7 +2,7 @@
 description: Predefined multi-agent workflow patterns for common scenarios
 args: <pattern-name> [--customize] [--quality-level mvp|standard|enterprise]
 tools: Task, TodoWrite, Read, Write
-model: claude-opus-4-1-20250805
+model: claude-opus-4-1
 ---
 
 # /workflow-patterns - Reusable Multi-Agent Workflow Templates

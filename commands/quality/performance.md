@@ -2,7 +2,7 @@
 description: Performance analysis and optimization
 args: [target] [--metric latency|throughput|memory|all] [--optimize]
 tools: Task, Read, Grep
-model: claude-sonnet-4-20250514
+model: claude-sonnet-4-5
 ---
 
 # Performance Analysis & Optimization

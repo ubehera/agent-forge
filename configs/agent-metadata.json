@@ -84,6 +84,34 @@
           "last_updated": "2025-02-20",
           "maintainer": "ubehera"
         },
+        "domain-modeling-expert": {
+          "quality_score": 8.0,
+          "dependencies": [],
+          "delegates_to": [
+            "system-design-specialist",
+            "backend-architect",
+            "api-platform-engineer",
+            "research-librarian"
+          ],
+          "tools": [
+            "Read",
+            "Write",
+            "MultiEdit",
+            "Task",
+            "WebSearch"
+          ],
+          "activation_patterns": [
+            "domain modeling",
+            "event storming",
+            "bounded context",
+            "ddd",
+            "ubiquitous language",
+            "aggregate design",
+            "context mapping"
+          ],
+          "last_updated": "2025-09-29",
+          "maintainer": "ubehera"
+        },
         "error-diagnostician": {
           "quality_score": 8.2,
           "dependencies": [],
@@ -562,6 +590,33 @@
           ],
           "last_updated": "2025-02-20",
           "maintainer": "ubehera"
+        },
+        "technical-documentation-specialist": {
+          "quality_score": 7.5,
+          "dependencies": [],
+          "delegates_to": [
+            "domain-modeling-expert",
+            "api-platform-engineer",
+            "system-design-specialist"
+          ],
+          "tools": [
+            "Read",
+            "Write",
+            "MultiEdit",
+            "Grep",
+            "WebFetch"
+          ],
+          "activation_patterns": [
+            "documentation review",
+            "adr",
+            "readme",
+            "technical writing",
+            "c4 diagram",
+            "runbook",
+            "api documentation"
+          ],
+          "last_updated": "2025-09-29",
+          "maintainer": "ubehera"
         }
       }
     },
@@ -661,6 +716,12 @@
       ],
       "security": [
         "security-architect"
+      ],
+      "domain_modeling": [
+        "domain-modeling-expert"
+      ],
+      "documentation": [
+        "technical-documentation-specialist"
       ],
       "python": [
         "python-expert"

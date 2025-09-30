@@ -8,6 +8,7 @@ Central catalog for the agent-forge workspace. Every agent complies with Claude 
 | `agent-coordinator` | 00-meta | Multi-agent orchestration | Task, Read, Write, MultiEdit |
 | `api-platform-engineer` | 01-foundation | API design & governance | Read, Write, MultiEdit, Bash, Grep, WebFetch, Task |
 | `code-reviewer` | 01-foundation | Code review & quality gates | Read, Grep, Glob, Task, WebSearch |
+| `domain-modeling-expert` | 01-foundation | Strategic DDD & context mapping | Read, Write, MultiEdit, Task, WebSearch |
 | `error-diagnostician` | 01-foundation | Production debugging & triage | Read, Grep, Bash, Glob, WebSearch, Task |
 | `performance-optimization-specialist` | 01-foundation | End-to-end performance tuning | Read, Write, MultiEdit, Bash, Grep, Task |
 | `system-design-specialist` | 01-foundation | Distributed systems architecture | Read, Write, MultiEdit, WebSearch, Task |
@@ -26,6 +27,7 @@ Central catalog for the agent-forge workspace. Every agent complies with Claude 
 | `sre-incident-responder` | 03-specialists | Incident response & reliability | Read, Write, MultiEdit, Bash, Task, WebSearch |
 | `machine-learning-engineer` | 04-experts | MLOps and production ML systems | Read, Write, MultiEdit, Bash, Task, WebSearch |
 | `research-librarian` | 06-integration | Primary-source research & synthesis | Read, Write, MultiEdit, WebSearch |
+| `technical-documentation-specialist` | 06-integration | Technical writing & doc quality | Read, Write, MultiEdit, Grep, WebFetch |
 | `security-architect` | 07-quality | Threat modelling & secure design | Read, Write, MultiEdit, Bash, Grep, WebSearch, Task |
 
 ## Invocation Cheatsheet
@@ -47,6 +49,8 @@ Use natural language triggers that mirror the descriptions above. Examples:
 - **Complex architecture** → `system-design-specialist`
 - **Research and sourcing** → `research-librarian`
 - **Code review / triage** → `code-reviewer` or `error-diagnostician`
+- **Domain modeling / event storming / DDD** → `domain-modeling-expert`
+- **Documentation review / ADRs / README** → `technical-documentation-specialist`
 
 ## Installation & Validation
 ```bash

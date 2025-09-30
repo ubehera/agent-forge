@@ -2,7 +2,7 @@
 description: Invoke a specific agent with context and requirements
 args: <agent-name> <task-description>
 tools: Task, Read, TodoWrite
-model: claude-sonnet-4-20250514
+model: claude-sonnet-4-5
 ---
 
 # Direct Agent Invocation

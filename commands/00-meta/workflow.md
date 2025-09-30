@@ -1,7 +1,7 @@
 ---
 description: Initialize or continue DDD workflow with quality gates and agent coordination
 tools: TodoWrite, Task, Read, Write, MultiEdit
-model: claude-opus-4-1-20250805
+model: claude-opus-4-1
 args: [phase] [context]
 ---
 
@@ -51,10 +51,17 @@ Orchestrates Domain-Driven Design workflows through the agent ecosystem with qua
 
 1. **Requirements**: Extract business goals, constraints, acceptance criteria
 2. **Domain Modeling**: Bounded contexts, aggregates, events, invariants
+   - **Agent**: `domain-modeling-expert` for event storming, context mapping, ubiquitous language
+   - **Command**: `/domain-model` for strategic DDD activities
 3. **Architecture**: System design, NFRs, technology choices
 4. **API Design**: Contract specifications with validation
+   - **Agent**: `api-platform-engineer` for API contracts
+   - **Command**: `/api` for OpenAPI/GraphQL specification
 5. **Implementation**: Code generation with testing
 6. **Quality Gates**: Review, testing, security validation
+   - **Agents**: `code-reviewer`, `test-engineer`, `security-architect`
+   - **Commands**: `/review`, `/test`, `/security-audit`
 7. **Deployment**: Infrastructure and monitoring setup
+   - **Agents**: `devops-automation-expert`, `observability-engineer`
 
 Each phase maintains 85-95% completion thresholds before advancement.

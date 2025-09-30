@@ -2,7 +2,7 @@
 description: Comprehensive quality gate orchestration with multi-agent validation
 args: [--level mvp|standard|enterprise] [--enforce strict|warning]
 tools: Task, TodoWrite, Read, Grep
-model: claude-opus-4-1-20250805
+model: claude-opus-4-1
 ---
 
 # /quality-gates - Multi-Agent Quality Assurance Orchestration

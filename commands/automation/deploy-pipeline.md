@@ -2,7 +2,7 @@
 description: Deploy CI/CD pipeline configuration for agent-forge project
 args: [--provider github|gitlab] [--environment dev|staging|prod] [--dry-run]
 tools: Write, Bash(git:*), Bash(gh:*), Bash(glab:*)
-model: claude-sonnet-4-20250514
+model: claude-sonnet-4-5
 ---
 
 ## Objective

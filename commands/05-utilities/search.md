@@ -1,7 +1,7 @@
 ---
 description: Intelligent code and documentation search with context-aware results
 tools: Grep, Glob, Read, WebSearch, Task
-model: claude-sonnet-4-20250514
+model: claude-sonnet-4-5
 args: [pattern] [scope]
 ---
 

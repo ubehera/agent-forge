@@ -2,7 +2,7 @@
 description: Complete quality review and deployment pipeline
 args: [target] [--env dev|staging|prod] [--checks all|security|performance]
 tools: Task, TodoWrite, Read, Bash(git:*), Bash(gh:*)
-model: claude-opus-4-1-20250805
+model: claude-opus-4-1
 ---
 
 # /review-and-deploy - Quality Review & Deployment Pipeline

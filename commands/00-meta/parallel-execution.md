@@ -2,7 +2,7 @@
 description: Coordinated parallel execution of multiple agents with dependency management
 args: <task-list> [--max-parallel 5] [--sync-points]
 tools: Task, TodoWrite, Read
-model: claude-opus-4-1-20250805
+model: claude-opus-4-1
 ---
 
 # /parallel-execution - Coordinated Parallel Agent Execution

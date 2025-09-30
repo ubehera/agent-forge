@@ -2,7 +2,7 @@
 description: Execute complete feature development workflow with DDD and quality gates
 args: [feature-context] [--stage=all|requirements|design|api|implementation|testing] [--ddd] [--parallel]
 tools: Task, TodoWrite, Read, Write
-model: claude-sonnet-4-20250514
+model: claude-sonnet-4-5
 ---
 
 ## Purpose
@@ -20,7 +20,8 @@ Complete feature development workflow using Domain-Driven Design principles with
 - Risk assessment and mitigation
 
 ### Stage 2: Domain Modeling (Quality Gate: 85%)
-**Agents**: `system-design-specialist` (DDD focus)
+**Agents**: `domain-modeling-expert` (strategic DDD), `system-design-specialist` (architecture implications)
+**Command**: `/domain-model` for event storming and context mapping
 **Duration**: 2-4 hours
 **Deliverables**:
 - Bounded contexts identification
@@ -211,17 +212,20 @@ Delegate to `agent-coordinator` for requirements extraction:
 **Quality Gate**: 90% requirements completeness and stakeholder alignment
 
 #### Stage 2: Domain Modeling (DDD)
-Delegate to `system-design-specialist` with DDD focus:
+Delegate to `domain-modeling-expert` for strategic DDD analysis:
 
 **Task**: Domain-driven design analysis for feature: $FEATURE_CONTEXT
 
 **Instructions**:
-1. Apply Domain-Driven Design principles
-2. Identify bounded contexts and their relationships
+1. Apply Domain-Driven Design principles with event storming
+2. Identify bounded contexts and their relationships using context mapping
 3. Define domain model with aggregates, entities, and value objects
-4. Establish ubiquitous language
+4. Establish ubiquitous language and domain glossary
 5. Model domain events and command flows
-6. Define integration patterns between contexts
+6. Define integration patterns between contexts (ACL, OHS, etc.)
+7. Coordinate with `system-design-specialist` for architectural implications
+
+**Command**: Use `/domain-model $FEATURE_CONTEXT --technique event-storming` for facilitation
 
 **Quality Gate**: 85% domain model clarity and bounded context definition
 

@@ -32,7 +32,7 @@ Frontmatter Fields:
   description: Brief command purpose
   args: <required> [optional] [--flag value]
   tools: Specific tools with restrictions (e.g., Bash(npm test:*))
-  model: claude-opus-4-1-20250805 or claude-sonnet-4-20250514
+  model: claude-opus-4-1 or claude-sonnet-4-5
 ```
 
 ## Command Catalog
@@ -183,7 +183,7 @@ Frontmatter Fields:
    description: Clear, concise description
    args: <required> [optional] [--flag value]
    tools: Task, Read  # Minimal permissions
-   model: claude-sonnet-4-20250514  # Or opus for complex orchestration
+   model: claude-sonnet-4-5  # Or claude-opus-4-1 for complex orchestration
    ---
    ```
 
@@ -204,7 +204,7 @@ Frontmatter Fields:
 
 ## Integration with Agent Ecosystem
 
-Commands seamlessly integrate with 22 specialized agents:
+Commands seamlessly integrate with 23 specialized agents:
 - **Foundation Tier**: Core development (API, review, test, debug)
 - **Development Tier**: Language specialists (Python, TypeScript, frontend)
 - **Specialist Tier**: Domain experts (cloud, database, DevOps)

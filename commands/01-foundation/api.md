@@ -1,7 +1,7 @@
 ---
 description: Design and implement REST/GraphQL APIs with OpenAPI specifications and validation
 tools: Task, Read, Write, MultiEdit, WebFetch
-model: claude-sonnet-4-20250514
+model: claude-sonnet-4-5
 args: [endpoint] [spec-type]
 ---
 

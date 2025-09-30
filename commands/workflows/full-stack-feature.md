@@ -2,7 +2,7 @@
 description: End-to-end feature development orchestrating system design, API development, frontend implementation, database modeling, and deployment with integrated testing and quality gates
 args: <feature-name> [--architecture microservices|monolith] [--quality mvp|standard|enterprise]
 tools: Task, TodoWrite, Read, Write, MultiEdit
-model: claude-opus-4-1-20250805
+model: claude-opus-4-1
 ---
 
 # /full-stack-feature - Complete Feature Development Pipeline

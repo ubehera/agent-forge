@@ -2,7 +2,7 @@
 description: Comprehensive health check for agent-forge infrastructure
 args: [--scope agents|scripts|configs] [--fix-issues] [--report-format json|text]
 tools: Bash(./scripts/verify-agents.sh:*), Bash(./scripts/quality-scorer.py:*), Read, Grep
-model: claude-sonnet-4-20250514
+model: claude-sonnet-4-5
 ---
 
 ## Objective

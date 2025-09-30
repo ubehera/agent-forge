@@ -2,7 +2,7 @@
 description: Dynamic agent team composition for different project types
 args: <project-type> [--scope small|medium|large] [--priority speed|quality|security]
 tools: Task, TodoWrite, Read
-model: claude-opus-4-1-20250805
+model: claude-opus-4-1
 ---
 
 # /team-formation - Dynamic Agent Team Composition
