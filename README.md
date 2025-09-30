@@ -7,19 +7,19 @@ Production-ready Claude Code agents with checklists and MCP integrations—build
 ## System Architecture
 
 ### 🎯 Core Components
-- **22 Specialized Agents**: Tiered collection from orchestration to domain experts
-- **37 Slash Commands**: Quick access workflows using latest Claude models (Opus 4.1, Sonnet 4)
+- **24 Specialized Agents**: Tiered collection from orchestration to domain experts
+- **35 Slash Commands**: Quick access workflows using latest Claude models (Opus 4-1, Sonnet 4-5)
 - **Automation Scripts**: Install, verify, and score agent quality
 - **MCP Integration**: Memory persistence and advanced reasoning capabilities
 
-### 📊 Agent Tiers (22 Total)
-- **Tier 0 (Meta)**: `agent-coordinator` - Multi-agent orchestration
-- **Tier 1 (Foundation)**: 6 agents - Core engineering (API, testing, review, debugging)
-- **Tier 2 (Development)**: 4 agents - Language/platform specialists
-- **Tier 3 (Specialists)**: 8 agents - Domain experts (cloud, backend, database, DevOps)
+### 📊 Agent Tiers (24 Total)
+- **Tier 0 (Meta)**: 1 agent - `agent-coordinator` for multi-agent orchestration
+- **Tier 1 (Foundation)**: 7 agents - Core engineering (API, domain modeling, testing, review, debugging, performance, system design)
+- **Tier 2 (Development)**: 4 agents - Language/platform specialists (frontend, mobile, Python, TypeScript)
+- **Tier 3 (Specialists)**: 8 agents - Domain experts (cloud, backend, database, DevOps, observability, SRE, data, full-stack)
 - **Tier 4 (Experts)**: 1 agent - Machine learning/MLOps
-- **Tier 6 (Integration)**: 1 agent - Research and documentation
-- **Tier 7 (Security)**: 1 agent - Security architecture and compliance
+- **Tier 6 (Integration)**: 2 agents - Research and technical documentation
+- **Tier 7 (Quality)**: 1 agent - Security architecture and compliance
 
 ## Quick Start
 ```bash
