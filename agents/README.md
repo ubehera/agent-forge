@@ -29,6 +29,14 @@ Central catalog for the agent-forge workspace. Every agent complies with Claude 
 | `research-librarian` | 06-integration | Primary-source research & synthesis | Read, Write, MultiEdit, WebSearch |
 | `technical-documentation-specialist` | 06-integration | Technical writing & doc quality | Read, Write, MultiEdit, Grep, WebFetch |
 | `security-architect` | 07-quality | Threat modelling & secure design | Read, Write, MultiEdit, Bash, Grep, WebSearch, Task |
+| `market-data-engineer` | 08-finance | Market data pipelines & quality | Read, Write, MultiEdit, Bash, WebFetch, Task |
+| `quantitative-analyst` | 08-finance | Technical indicators & Greeks | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `trading-strategy-architect` | 08-finance | Backtesting & strategy validation | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `trading-risk-manager` | 08-finance | Position sizing & portfolio optimization | Read, Write, MultiEdit, Bash, Task |
+| `algorithmic-trading-engineer` | 08-finance | Order execution & broker integration | Read, Write, MultiEdit, Bash, WebFetch, Task |
+| `equity-research-analyst` | 08-finance | Fundamental analysis & valuation | Read, Write, MultiEdit, WebSearch, Task |
+| `trading-ml-specialist` | 08-finance | ML for trading with walk-forward validation | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `trading-compliance-officer` | 08-finance | PDT rules & regulatory compliance | Read, Write, MultiEdit, WebSearch, Task |
 
 ## Invocation Cheatsheet
 Use natural language triggers that mirror the descriptions above. Examples:
@@ -51,6 +59,14 @@ Use natural language triggers that mirror the descriptions above. Examples:
 - **Code review / triage** → `code-reviewer` or `error-diagnostician`
 - **Domain modeling / event storming / DDD** → `domain-modeling-expert`
 - **Documentation review / ADRs / README** → `technical-documentation-specialist`
+- **Market data pipelines / stock data** → `market-data-engineer`
+- **Technical indicators / RSI / MACD / options Greeks** → `quantitative-analyst`
+- **Backtesting / strategy validation / walk-forward** → `trading-strategy-architect`
+- **Position sizing / portfolio optimization / VaR** → `trading-risk-manager`
+- **Order execution / broker API / live trading** → `algorithmic-trading-engineer`
+- **Fundamental analysis / DCF / financial statements** → `equity-research-analyst`
+- **Machine learning for trading / price prediction** → `trading-ml-specialist`
+- **PDT rules / wash sales / trade compliance** → `trading-compliance-officer`
 
 ## Installation & Validation
 ```bash
