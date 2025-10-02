@@ -16,7 +16,7 @@ This document provides comprehensive testing procedures for validating the ubehe
 find ~/.claude/agents -maxdepth 1 -type f -name '*.md' \
   | grep -E '(agent-coordinator|api-platform-engineer|code-reviewer|error-diagnostician|performance-optimization-specialist|system-design-specialist|test-engineer|frontend-expert|aws-cloud-architect|data-pipeline-engineer|devops-automation-expert|full-stack-architect|machine-learning-engineer|research-librarian|security-architect)'
 
-# Count should be 22 agents
+# Count should be 34 agents (22 original + 9 finance + 3 additional)
 find ~/.claude/agents -maxdepth 1 -type f -name '*.md' | wc -l
 ```
 
@@ -394,3 +394,95 @@ system-design-specialist      | __/5          |
 - [ ] "Improve MTTR for our payments service"
 
 **Expected Result:** Should invoke `sre-incident-responder`
+
+## Finance Agents Testing (Tier 08-finance)
+
+### 23. market-data-engineer
+**Test Phrases:**
+- [ ] "Fetch historical OHLCV data for AAPL from Alpaca"
+- [ ] "Set up a TimescaleDB pipeline for market data"
+- [ ] "Build a multi-broker data connector for stocks and options"
+- [ ] "Monitor data quality for missing bars and outliers"
+- [ ] "Stream real-time trades via WebSocket"
+
+**Expected Result:** Should invoke `market-data-engineer`
+
+### 24. quantitative-analyst
+**Test Phrases:**
+- [ ] "Calculate RSI and MACD indicators for TSLA"
+- [ ] "Compute options Greeks using Black-Scholes"
+- [ ] "Analyze statistical arbitrage opportunities"
+- [ ] "Generate technical analysis features for backtesting"
+- [ ] "Calculate implied volatility from option prices"
+
+**Expected Result:** Should invoke `quantitative-analyst`
+
+### 25. trading-strategy-architect
+**Test Phrases:**
+- [ ] "Backtest a momentum strategy with vectorbt"
+- [ ] "Implement walk-forward validation for my strategy"
+- [ ] "Design a mean-reversion trading system"
+- [ ] "Optimize strategy parameters with grid search"
+- [ ] "Calculate Sharpe ratio and max drawdown"
+
+**Expected Result:** Should invoke `trading-strategy-architect`
+
+### 26. trading-risk-manager
+**Test Phrases:**
+- [ ] "Calculate position sizes using Kelly criterion"
+- [ ] "Optimize portfolio allocation with risk parity"
+- [ ] "Compute VaR and CVaR for my portfolio"
+- [ ] "Analyze portfolio correlation and diversification"
+- [ ] "Set up risk limits and stop-loss rules"
+
+**Expected Result:** Should invoke `trading-risk-manager`
+
+### 27. algorithmic-trading-engineer
+**Test Phrases:**
+- [ ] "Execute a limit order via Alpaca API"
+- [ ] "Build an order management system for multi-broker trading"
+- [ ] "Implement TWAP and VWAP execution algorithms"
+- [ ] "Set up position reconciliation with broker"
+- [ ] "Create retry logic for failed order submissions"
+
+**Expected Result:** Should invoke `algorithmic-trading-engineer`
+
+### 28. equity-research-analyst
+**Test Phrases:**
+- [ ] "Perform DCF valuation for AAPL"
+- [ ] "Screen stocks with P/E < 15 and ROE > 15%"
+- [ ] "Analyze MSFT using comparable company analysis"
+- [ ] "Calculate intrinsic value with WACC and FCF projections"
+- [ ] "Find undervalued stocks in the S&P 500"
+
+**Expected Result:** Should invoke `equity-research-analyst`
+
+### 29. trading-ml-specialist
+**Test Phrases:**
+- [ ] "Build a price prediction model with XGBoost"
+- [ ] "Implement walk-forward validation for ML trading"
+- [ ] "Detect overfitting in my trading model"
+- [ ] "Engineer features for stock price forecasting"
+- [ ] "Train an LSTM for volatility prediction"
+
+**Expected Result:** Should invoke `trading-ml-specialist`
+
+### 30. trading-compliance-officer
+**Test Phrases:**
+- [ ] "Check if this trade violates PDT rules"
+- [ ] "Track wash sales for tax reporting"
+- [ ] "Validate pattern day trader restrictions"
+- [ ] "Generate 1099-B for trade reporting"
+- [ ] "Ensure compliance with FINRA regulations"
+
+**Expected Result:** Should invoke `trading-compliance-officer`
+
+### 31. portfolio-manager
+**Test Phrases:**
+- [ ] "Allocate capital across 3 trading strategies"
+- [ ] "Aggregate signals from quant, fundamental, and ML sources"
+- [ ] "Rebalance portfolio based on 5% drift threshold"
+- [ ] "Calculate performance attribution by strategy"
+- [ ] "Construct a multi-strategy portfolio with risk parity"
+
+**Expected Result:** Should invoke `portfolio-manager`
