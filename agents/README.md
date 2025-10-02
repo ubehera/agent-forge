@@ -30,13 +30,14 @@ Central catalog for the agent-forge workspace. Every agent complies with Claude 
 | `technical-documentation-specialist` | 06-integration | Technical writing & doc quality | Read, Write, MultiEdit, Grep, WebFetch |
 | `security-architect` | 07-quality | Threat modelling & secure design | Read, Write, MultiEdit, Bash, Grep, WebSearch, Task |
 | `market-data-engineer` | 08-finance | Market data pipelines & quality | Read, Write, MultiEdit, Bash, WebFetch, Task |
-| `quantitative-analyst` | 08-finance | Technical indicators & Greeks | Read, Write, MultiEdit, Bash, Task, WebSearch |
-| `trading-strategy-architect` | 08-finance | Backtesting & strategy validation | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `quantitative-analyst` | 08-finance | Technical indicators & Greeks | Read, Write, MultiEdit, Bash, Task |
+| `trading-strategy-architect` | 08-finance | Backtesting & strategy validation | Read, Write, MultiEdit, Bash, Task |
 | `trading-risk-manager` | 08-finance | Position sizing & portfolio optimization | Read, Write, MultiEdit, Bash, Task |
-| `algorithmic-trading-engineer` | 08-finance | Order execution & broker integration | Read, Write, MultiEdit, Bash, WebFetch, Task |
+| `algorithmic-trading-engineer` | 08-finance | Order execution & broker integration | Read, Write, MultiEdit, Bash, Task |
 | `equity-research-analyst` | 08-finance | Fundamental analysis & valuation | Read, Write, MultiEdit, WebSearch, Task |
-| `trading-ml-specialist` | 08-finance | ML for trading with walk-forward validation | Read, Write, MultiEdit, Bash, Task, WebSearch |
+| `trading-ml-specialist` | 08-finance | ML for trading with walk-forward validation | Read, Write, MultiEdit, Bash, Task |
 | `trading-compliance-officer` | 08-finance | PDT rules & regulatory compliance | Read, Write, MultiEdit, WebSearch, Task |
+| `portfolio-manager` | 08-finance | Multi-strategy portfolio construction & allocation | Read, Write, MultiEdit, Bash, Task |
 
 ## Invocation Cheatsheet
 Use natural language triggers that mirror the descriptions above. Examples:
@@ -67,6 +68,7 @@ Use natural language triggers that mirror the descriptions above. Examples:
 - **Fundamental analysis / DCF / financial statements** → `equity-research-analyst`
 - **Machine learning for trading / price prediction** → `trading-ml-specialist`
 - **PDT rules / wash sales / trade compliance** → `trading-compliance-officer`
+- **Multi-strategy portfolio / capital allocation / rebalancing** → `portfolio-manager`
 
 ## Installation & Validation
 ```bash
